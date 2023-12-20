@@ -1,0 +1,43 @@
+% This file contains the rate of from Respiratory Infection caused by
+COVID-19
+% in different gender and race groups, in San Hose, CA, in year 2020 and
+2021.
+%
+% Each line contains four items joined by tabs.
+%
+% The first item indicates the year.
+%
+% The second item indicates the gender group.
+%
+% The third item indicates the race group.
+%
+% The fourth item indicates the number of death per 100,000 population.
+%
+2020 White Female 28.86
+2021 Asian/PI Both 41.20
+2020 Asian/PI Both 40.27
+2021 Hispanic Both 124.17
+2020 Hispanic Both 102.10
+2021 Black Both 70.93
+2020 Black Both 79.21
+2021 White Both 52.13
+2020 White Both 35.09
+2021 Asian/PI Male 60.01
+2020 Asian/PI Male 57.73
+2021 All Female 45.41
+2021 Hispanic Male 182.06
+2020 Hispanic Male 162.08
+2020 All Female 37.50
+2021 Black Male 122.93
+2020 Black Male 64.94
+2021 All Male 82.39
+2021 White Male 61.64
+2020 White Male 42.10
+2021 Asian/PI Female 25.90
+2020 All Male 66.60
+2020 Asian/PI Female 26.16
+2021 Hispanic Female 81.96
+2021 All Both 62.43
+2020 Hispanic Female 74.57
+2020 All Both 50.47
+2021 White Female 45.07
