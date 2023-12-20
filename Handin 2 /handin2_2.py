@@ -1,6 +1,6 @@
 
 #Creating the variable 
-message = "hello world" 
+message = "Hello, world!"
 message_length = len(message) 
 
 # Print the length of the string to the console

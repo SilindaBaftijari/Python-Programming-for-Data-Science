@@ -1,2 +1,2 @@
-if 2<4:
-    print("Hello", "world!")
+if 2 < 4:
+    print("Hello, World!")
