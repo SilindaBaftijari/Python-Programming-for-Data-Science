@@ -21,6 +21,7 @@ def read_csv_data(file_path):
                 continue
     return data_list
 
+# Using the given example
 def line_plot_race_over_years(data, race, plot=True):
     years = []
     values = []
