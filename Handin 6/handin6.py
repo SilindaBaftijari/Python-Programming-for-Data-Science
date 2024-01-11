@@ -39,22 +39,25 @@ def barnsley_fern_generator(repet_count):
     # Save the points to a file
     np_points = np.array(points)
     np.savetxt(f'fern_data_{repet_count}.txt', np_points, fmt='%.18e', delimiter=' ')
-
+    
 def main():
     repet_count = 50000
     barnsley_fern_generator(repet_count)
-
-    # Load the points from the file
-    fern_points = np.loadtxt(f'fern_data_{repet_count}.txt')
-
+    
+    # Load the points from the file    
+    fern_points = np.genfromtxt(f"fern_data_{repet_count}.txt")
+    
     # Plot the points
-    plt.scatter(fern_points[:, 0], fern_points[:, 1], s=0.1, color='green')
-    plt.title(f'Barnsley Fern with {repet_count} points')
-    plt.axis('off')
+    x = fern_points[:, 0]
+    y = fern_points[:, 1]
+    plt.scatter(x, y, s=0.5, c='green', edgecolor='none')
+    plt.axis('off')  
+    
+    # Show the plot
     plt.show()
+    
+    # Save the plot as an image 
+    plt.savefig('barnsley_fern_50000.png', transparent=True)
 
-    # Save the plot as an image file
-    plt.savefig(f'fern_plot_{repet_count}.png')
+main()
 
-if __name__ == '__main__':
-    main()
