@@ -59,5 +59,6 @@ def main():
     # Save the plot as an image 
     plt.savefig('barnsley_fern_50000.png', transparent=True)
 
+
 main()
 

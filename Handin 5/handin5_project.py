@@ -1,26 +1,24 @@
 import csv
-import re
 
 def read_csv_to_list_of_dicts(file_path):
     data_list = []
-    with open(file_path, 'r') as file:
-        pattern = re.compile(r'Drug Overdose Deaths (\d+\.\d+) (\d{4}) (\w+) Male')
-        for line in file:
-            if line.startswith('%') or not line.strip():
+    with open(file_path, 'r', encoding='utf-8-sig') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if len(row) < 5:
                 continue
-            match = pattern.search(line)
-            if match:
-                value, year, race = match.groups()
-                try:
-                    processed_row = {
-                        'year': int(year),  # Year
-                        'value': float(value),  # Value
-                        'race': race,  # Race
-                        'gender': 'Male'  # Gender
-                    }
-                    data_list.append(processed_row)
-                except (IndexError, ValueError):
-                    continue
+            if row[0].startswith('%') or not row[0].strip():
+                continue
+            try:
+                processed_row = {
+                    'year': int(row[2]),  # Year
+                    'value': float(row[1]),  # Value
+                    'race': row[3],  # Race
+                    'gender': row[4]  # Gender
+                }
+                data_list.append(processed_row)
+            except (IndexError, ValueError):
+                continue
     return data_list
 
 def group_by_gender_race(data):
@@ -39,11 +37,13 @@ def sum_over_years(grouped_data):
         sum_data[key] = round(total, 2)
     return sum_data
 
-drug_deaths = read_csv_to_list_of_dicts('Handin 5/san_jose_drug.csv')
+
+drug_deaths = read_csv_to_list_of_dicts('san_jose_drug.csv')
 drug_deaths_per_gender_and_race = group_by_gender_race(drug_deaths)
 drug_deaths_sum_over_5_years = sum_over_years(drug_deaths_per_gender_and_race)
 
-print(f"The deaths of Black Males between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'Black')]}")
-print(f"The deaths of White Males between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'White')]}")
-print(f"The deaths of Hispanic Males between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'Hispanic')]}")
-print(f"The deaths of Asian/PI Males between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'Asian/PI')]}")
+
+print(f"The deaths of Black Male between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'Black')]}")
+print(f"The deaths of White Male between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'White')]}")
+print(f"The deaths of Hispanic Male between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'Hispanic')]}")
+print(f"The deaths of Asian/PI Male between 2017-2020 is {drug_deaths_sum_over_5_years[('Male', 'Asian/PI')]}")
