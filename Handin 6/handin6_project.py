@@ -39,7 +39,9 @@ def line_plot_race_over_years(data, race, plot=True):
     if plot:
         fig, ax = plt.subplots()
         ax.plot(years, values, marker='o', label=f'Death rate for {race}')
-        ax.set_xticks(sorted(set(years)))  # Ensure unique and sorted
+        unique_sorted_years = sorted(set(years))
+        ax.set_xticks(unique_sorted_years)
+        ax.set_xticklabels(unique_sorted_years)
         ax.set_title(f'Death rate over years -- {race}')
         ax.legend()
         plt.show()
@@ -61,14 +63,16 @@ def bar_plot_year_across_races(data, year, plot=True):
     if plot:
         fig, ax = plt.subplots()
         ax.bar(races, values)
-        ax.set_xticks(range(len(races)))  # Set x-ticks based on the length of races
-        ax.set_xticklabels(races, rotation=45)
+        unique_sorted_races = sorted(set(races))
+        ax.set_xticks(range(len(unique_sorted_races)))
+        ax.set_xticklabels(unique_sorted_races, rotation=45)
         ax.set_title(f'Death rate across races -- {year}')
         plt.show()
         plt.savefig('bar_plot_{}.png'.format(year))
         return fig, ax
     else:
         return races, values
+
 
 # Load data from CSV file
 drug_deaths_data = read_csv_data('san_jose_drug.csv')
