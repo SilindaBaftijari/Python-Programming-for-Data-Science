@@ -85,3 +85,24 @@ print(" "*5+"**")
 
 
 
+
+#Human needs with a run-time error
+dog_needs = 0
+human_mode = "happy"
+dog_accident = 1
+
+for dog_walks in range(1, 5):
+    dog_needs = dog_needs + 1
+    
+dog_needs = dog_needs/dog_accident
+
+print("My dog was outside " + str(dog_needs) + " times today, and the owner is " + human_mode)
+
+dog_accident = input("enter YES if the dog had an accident ")
+
+if dog_accident == "YES": 
+    human_mode = "sad"
+    print("My dog was outside " + str(dog_needs) + " times today, and the owner is " +
+human_mode)
+else :
+    print("My dog was outside " + str(dog_needs) + " times today, and the owner is " + human_mode )
