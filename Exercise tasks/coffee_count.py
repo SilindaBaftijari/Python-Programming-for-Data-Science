@@ -43,3 +43,45 @@ for dog_walks in range(1,5):
     dog_needs = dog_needs + 1
 print("My dog was outside " +str(dog_needs) + " times today, and is " + dog_mode)
 
+
+donut_box = "closed"
+coffee_cup = "open"
+off_work = True
+
+if donut_box == "open" or coffee_cup == "open":
+    print("Kicking back like Homer")
+else:
+    print("Working hard like Lisa")
+
+
+# donuts
+donut_box = "closed"
+coffee_cup = "open"
+work_status = False
+if donut_box == "open" or coffee_cup == "open":
+    if work_status:
+        print("Kicking back like Homer at work")
+    else:
+        print("TV and sofa")
+else:
+    print("Working hard like Lisa")
+
+#Your Task: Make a bigger holiday tree 
+#Explain to your peer what it does and how you would expand it 6 rows to make a tall tree. 
+
+for i in range(3):
+    print(' ' * (2 - i) + '*' * (2 * i + 1))
+
+# What happens with the `range(3)? At what number does it start = loop iterates 3 times, creating 3 layers of the tree. 
+# What does ' ' * (2 - i) do = creates the necessary spaces on the left to center the stars. 
+# What happens with '*' * (2 * i + 1) = creates the stars in the tree. The number of stars increases with each layer to form the tree shape
+# What happens as the loop progresses = the tree forms 
+
+#Your task now is to increase the range() to 7 iterations and add a trunk to the bottom of the tree. 
+
+for i in range(7):
+    print(' ' * (6 - i) + '*' * (2 * i + 1))
+print(" "*5+"**")
+
+
+
