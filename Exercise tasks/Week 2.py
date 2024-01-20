@@ -44,3 +44,48 @@ camel_case_str = pascal_case_str[0].lower() + pascal_case_str[1:]
 print(kebab_case_str, pascal_case_str, camel_case_str)
 
 
+#Nov 29 Exercise Problems 
+
+#1. I want to calculate the average of 4 and 6. What's wrong with the following expression:
+#4+6 / 2 
+
+x = (4+6)/2 
+print(x) 
+
+x = 4
+x += 1
+x //= 2
+x **= 2
+x %= 5
+print(x)
+
+
+#Lab exercise: Chinese Zodiac Year
+#Chinese zodiac years are represented by 12 animals. Each Chinese lunar year in the repeating zodiac
+#cycle of 12 years is represented by a zodiac animal.
+#The order of animals in a zodic cycle: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig.
+#The corresponding years for each zodiac:
+
+#Task: reformatting your birth date and calculating your Chinese Zodiac sign
+
+birth_date = input('Please type in your birth date:')
+
+birth_date_dmy = birth_date.split('/')
+year = int(birth_date_dmy[2])
+month = int(birth_date_dmy[1])
+day = int(birth_date_dmy[0])
+
+zodiacs = ['Rat', 'Ox', 'Tiger', 'Rabbit',
+'Dragon', 'Snake', 'Horse','Goat',
+'Monkey', 'Rooster', 'Dog', 'Pig']
+
+zodiac = zodiacs[(year - 1996) % 12]
+
+month_abbrevs = ['Jan','Feb','Mar','Apr',
+'May','Jun', 'Jul','Aug',
+'Sep','Oct', 'Nov','Dec']
+
+month_abbrev = month_abbrevs[month-1]
+
+print(f'You were born on {day} {month_abbrev} {year}. Your chinese zodiac sign is: {zodiac}')
+
